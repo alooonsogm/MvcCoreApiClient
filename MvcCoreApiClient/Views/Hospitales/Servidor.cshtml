@@ -1,0 +1,36 @@
+﻿@model List<Hospital>
+
+<div class="text-center">
+    <h1 class="display-4">Api Hospitales Servidor</h1>
+
+@if (Model != null)
+{
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Id Hospital</th>
+                    <th>Nombre</th>
+                    <th>Direccion</th>
+                    <th>Telefono</th>
+                    <th>Camas</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Hospital hospital in Model)
+                {
+                    <tr>
+                        <td>@hospital.IdHospital</td>
+                        <td>@hospital.Nombre</td>
+                        <td>@hospital.Direccion</td>
+                        <td>@hospital.Telefono</td>
+                        <td>@hospital.Camas</td>
+                        <td>
+                            <a class="btn btn-info" asp-controller="Hospitales" asp-action="Details" asp-route-id="@hospital.IdHospital">Details</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+}
+</div>

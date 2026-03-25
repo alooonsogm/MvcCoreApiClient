@@ -1,0 +1,45 @@
+﻿@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $("#btnhospital").click(function() {
+                let url = "https://apicorehospitalesagm.azurewebsites.net/";
+                let request = "api/hospitales";
+                $.ajax({
+                    url: url + request,
+                    method: "GET",
+                    success: function(data){
+                        console.log("Todo funciona!!");
+                        var html = "";
+                        $.each(data, function(index, hospital){
+                            html += "<tr>";
+                            html += "<td>" + hospital.idHospital + "</td>";
+                            html += "<td>" + hospital.nombre + "</td>";
+                            html += "<td>" + hospital.direccion + "</td>";
+                            html += "<td>" + hospital.telefono + "</td>";
+                            html += "<td>" + hospital.camas + "</td>";
+                            html += "</tr>";
+                        })
+                        $("#tablahospital tbody").html(html);
+                    }
+                })
+            })
+        })
+    </script>
+}
+
+<div class="text-center">
+    <h1 class="display-4">Api Hospitales Cliente</h1>
+    <button id="btnhospital" class="btn btn-warning">Load Hospitales</button>
+    <table class="table table-bordered" id="tablahospital">
+        <thead>
+            <tr>
+                <th>Id Hospital</th>
+                <th>Nombre</th>
+                <th>Direccion</th>
+                <th>Telefono</th>
+                <th>Camas</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>

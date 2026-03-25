@@ -1,0 +1,29 @@
+﻿@model Hospital
+
+<div class="text-center">
+    <h1 class="display-4">Api Details Hospitales</h1>
+
+@if (Model != null)
+{
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Id Hospital</th>
+                    <th>Nombre</th>
+                    <th>Direccion</th>
+                    <th>Telefono</th>
+                    <th>Camas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@Model.IdHospital</td>
+                    <td>@Model.Nombre</td>
+                    <td>@Model.Direccion</td>
+                    <td>@Model.Telefono</td>
+                    <td>@Model.Camas</td>
+                </tr>
+            </tbody>
+        </table>
+}
+</div>
